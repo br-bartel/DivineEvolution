@@ -1,0 +1,11 @@
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/bin/Debug/netcoreapp3.0/DevOps_game
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/bin/Debug/netcoreapp3.0/DevOps_game.deps.json
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/bin/Debug/netcoreapp3.0/DevOps_game.runtimeconfig.json
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/bin/Debug/netcoreapp3.0/DevOps_game.runtimeconfig.dev.json
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/bin/Debug/netcoreapp3.0/DevOps_game.dll
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/bin/Debug/netcoreapp3.0/DevOps_game.pdb
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/obj/Debug/netcoreapp3.0/DevOps_game.csprojAssemblyReference.cache
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/obj/Debug/netcoreapp3.0/DevOps_game.AssemblyInfoInputs.cache
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/obj/Debug/netcoreapp3.0/DevOps_game.AssemblyInfo.cs
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/obj/Debug/netcoreapp3.0/DevOps_game.dll
+/Users/yelenadovgal/C#_Projects/DivineEVolution/DEV_OPSgame/DevOps_game/DevOps_game/obj/Debug/netcoreapp3.0/DevOps_game.pdb
