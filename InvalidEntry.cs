@@ -1,5 +1,4 @@
 ﻿using System;
-
 public class InvalidEntry
 {
 	static int invalidCount { private get; set; } // is there a better way of doing this?
