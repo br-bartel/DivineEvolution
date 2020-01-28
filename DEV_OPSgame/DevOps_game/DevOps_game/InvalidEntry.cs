@@ -30,7 +30,7 @@ public class InvalidEntry
                     InvalidCount++;
                     break;
                 default:
-                    result = $"InvalidCount'm sorry " /*{playerName}*/ + ", InvalidCount'm afraid InvalidCount can't do that."; // use player name in this string
+                    result = $"I'm sorry " /*{playerName}*/ + ", I'm afraid I can't do that."; // use player name in this string
                     break;
             }
         }
