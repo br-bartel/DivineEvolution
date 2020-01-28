@@ -1,7 +1,7 @@
 ﻿using System;
 public class InvalidEntry
 {
-	static int InvalidCount { private get; set; } // is there a better way of doing this?
+	static int InvalidCount { get; set; } // is there a better way of doing this?
 	public string Invalid(bool isValid) // pass in equality statement i.e. userIn == validIn ???
 	{
         string result;
