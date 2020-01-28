@@ -12,13 +12,13 @@ namespace DevOps_game
         /// Holds the number of times that the user has entered incorrect text in a single instance.
         /// Needs to be reset to zero as a part of a conditional when used
         /// </summary>
-        static int InvalidCount { get; set; }
+        public static int InvalidCount;
         /// <summary>
         /// Using the InvalidCount, returns different messages intended to inform the user that
         /// they have entered an invalid choice
         /// </summary>
         /// <returns></returns>
-        public string Invalid()
+        public static string Invalid()
         {
             string result;
             switch (InvalidCount)
