@@ -1,12 +1,26 @@
 ﻿using System;
-public class InvalidEntry
+
+namespace DevOps_game
 {
-	static int InvalidCount { get; set; } // is there a better way of doing this?
-	public string Invalid(bool isValid) // pass in equality statement i.e. userIn == validIn ???
-	{
-        string result;
-		if (!isValid)
+    /// <summary>
+    /// Class that contains a method that returns a string that can be used to signify to the user that
+    /// the text that they entered didn't match an expected value
+    /// </summary>
+    public class InvalidEntry
+    {
+        /// <summary>
+        /// Holds the number of times that the user has entered incorrect text in a single instance.
+        /// Needs to be reset to zero as a part of a conditional when used
+        /// </summary>
+        static int InvalidCount { get; set; }
+        /// <summary>
+        /// Using the InvalidCount, returns different messages intended to inform the user that
+        /// they have entered an invalid choice
+        /// </summary>
+        /// <returns></returns>
+        public string Invalid()
         {
+            string result;
             switch (InvalidCount)
             {
                 case 0:
@@ -33,12 +47,7 @@ public class InvalidEntry
                     result = $"I'm sorry " /*{playerName}*/ + ", I'm afraid I can't do that."; // use player name in this string
                     break;
             }
+            return result;
         }
-        else
-        {
-            InvalidCount = 0; // might be replaced in another class
-            result = ""; 
-        }
-        return result;
-	}
+    }
 }
