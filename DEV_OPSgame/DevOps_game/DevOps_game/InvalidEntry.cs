@@ -44,7 +44,7 @@ namespace DevOps_game
                     InvalidCount++;
                     break;
                 default:
-                    result = $"I'm sorry " /*{playerName}*/ + ", I'm afraid I can't do that."; // use player name in this string
+                    result = $"I'm sorry {Game.currentState.playerName}, I'm afraid I can't do that."; // use player name in this string
                     break;
             }
             return result;
