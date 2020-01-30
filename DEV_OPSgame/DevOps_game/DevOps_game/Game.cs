@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace DevOps_game
 {
-    class Game
+    static class Game
     {
         /// <summary>
         /// State field containing all state related variables
@@ -34,7 +35,8 @@ namespace DevOps_game
         private static void gameLoop() // method inside game control loop
         {
             displayText(input);
-            input = Console.ReadLine(); // reads for user input
+            Console.Write("> ");
+            input = Console.ReadLine().ToLower(); // reads for user input
             if (currentState.playerName == "") // for first scene, assign player name
             {
                 currentState.playerName = input;
@@ -48,6 +50,15 @@ namespace DevOps_game
             while (i < displayText.Count)
             {
                 Console.WriteLine(displayText[i]);
+                //var words = displayText[i].Split("");
+                //var lines = words.Skip(1).Aggregate(words.Take(1).ToList(), (l, w) =>
+                //{
+                //    if (l.Last().Length + w.Length >= 80)
+                //        l.Add(w);
+                //    else
+                //        l[l.Count - 1] += " " + w;
+                //    return l;
+                //});
                 Thread.Sleep(1000);
                 i++;
             }
@@ -58,6 +69,10 @@ namespace DevOps_game
             if (isValid == false)
             {
                 return InvalidEntry.Invalid(); // executes the invalid method that returns the error text
+            }
+            else if (input == currentState.playerName && currentState.cycle == 1)
+            {
+                return "";
             }
             else
             {
