@@ -49,17 +49,28 @@ namespace DevOps_game
             int i = 0;
             while (i < displayText.Count)
             {
-                Console.WriteLine(displayText[i]);
-                //var words = displayText[i].Split("");
-                //var lines = words.Skip(1).Aggregate(words.Take(1).ToList(), (l, w) =>
-                //{
-                //    if (l.Last().Length + w.Length >= 80)
-                //        l.Add(w);
-                //    else
-                //        l[l.Count - 1] += " " + w;
-                //    return l;
-                //});
-                Thread.Sleep(1000);
+				string[] lines = displayText[i]
+									.Replace("\t", new String(' ', 8))
+									.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+				for (int index = 0; index < lines.Length; index++) {
+					string process = lines[index];
+					List<String> wrapped = new List<string>();
+
+					while (process.Length > Console.WindowWidth) {
+						int wrapAt = process.LastIndexOf(' ', Math.Min(Console.WindowWidth - 1, process.Length));
+						if (wrapAt <= 0) break;
+
+						wrapped.Add(process.Substring(0, wrapAt));
+						process = process.Remove(0, wrapAt + 1);
+					}
+
+					foreach (string wrap in wrapped) {
+						Console.WriteLine(wrap);
+					}
+
+					Console.WriteLine(process);
+				}
                 i++;
             }
         }
