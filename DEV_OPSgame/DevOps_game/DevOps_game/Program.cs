@@ -4,7 +4,7 @@ namespace DevOps_game
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Game.startGame();
         }
