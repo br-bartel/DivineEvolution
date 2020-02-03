@@ -5,9 +5,9 @@ namespace DevOps_game
 {
     public class Docks : Location
     {
-        public override List<string> chooseText(string input)
+        public override Dictionary<string, List<string>> chooseText(string input)
         {
-            List<string> openingArray = new List<string> 
+            List<string> sceneOneStory = new List<string>
                     {"You awaken to the smell of the sea and gulls squawking overhead, " +
                     "not quite remembering how you got to this point. You begin to gain your bearings and as you try to sit up, " +
                     "you get hit with a wave of nausea and dizziness. Your condition is not at all helped by the smell of fish coming from the cart you have been lying in. " +
@@ -15,9 +15,9 @@ namespace DevOps_game
                     "It takes a couple minutes, but you are finally able to lift yourself up and out of the cart. " +
                     "Looking around, you notice that you are standing on a dock on the edge of a small town. " +
                     "As you take in the view, you start to think back on your past, the memories hovering just out of reach. You think harder and harder, trying to remember...  " +
-                    "Aha! You remember that your name is:\nPlease enter your character's name:\n"};
+                    "Aha! You remember that your name is:"};
 
-            List<string> defaultText = new List<string> 
+            List<string> sceneTwoStory = new List<string> 
                     {"It seems that remembering your name has it all starting to come back now. " +
                     "You are a teacher at the University of Mages and have an exceptional understanding of the arcane arts, with your cautious demeanor making you a perfect fit for teaching the more dangerous subjects. " +
                     "Your dedication to your work leaves you with little time off, to the point that your boss has had to step in to force you to have a weekend to yourself. You remember leaving your home for your mandated weekend off... but where ? Why ? " +
@@ -25,14 +25,24 @@ namespace DevOps_game
                     "[Wallet]? Still there, nothing seems to be out of place. Coin [purse]? Seems to be all there, just as depressingly light as it was before. Pocket [watch]? Still attached to the inside of your coat. Torn off piece of [parchment]? Yup, just as you... wait. What’s that doing there? "
                     };
 
+            List<string> sceneOneFlavor = new List<string>
+                    { "Please enter your character's name:\n" };
+
+            Dictionary<string, List<string>> story = new Dictionary<string, List<string>>();
+
             if (Game.currentState.cycle == 1)
             {
                 if (Game.currentState.playerName == "")
                 {
-                    return openingArray;
+                    story.Add("story", sceneOneStory);
+                    story.Add("flavor", sceneOneFlavor); 
+                    
+                    return story;
                 }
                 else
                 {
+                    story.Add("story", sceneTwoStory);
+                    List<string> sceneTwoFlavor = new List<string>();
                     validInputs = new Dictionary<string, string>
                     {
                         //{ Game.currentState.playerName, "This is your name" }, // not ideal, will need to expand capability for this later
@@ -44,24 +54,22 @@ namespace DevOps_game
 
                     if (input == "help" || input == "?" || input == "h")
                     {
-                        defaultText.Add(HelpMessage.Help());
+                        sceneTwoFlavor.Add(HelpMessage.Help());
                     }
                     else
 
                     {
-                        string checkedString = Game.checker(validInputs);
-
-                        defaultText.Add(checkedString);
+                        sceneTwoFlavor.Add(Game.checker(validInputs));
                         HelpMessage.helpCount = 0;
                     }
 
-                    
-                    return defaultText;
+                    story.Add("flavor", sceneTwoFlavor);
+                    return story;
                 }
             }
             else
             {
-                return defaultText;
+                return story;
             }
         }
     }

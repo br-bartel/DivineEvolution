@@ -7,6 +7,6 @@ namespace DevOps_game
     {
         public static Dictionary<string, string> validInputs = new Dictionary<string, string>(); // explore JSON for next sprint
 
-        public abstract List<string> chooseText(string input);
+        public abstract Dictionary<string, List<string>> chooseText(string input);
     }
 }
