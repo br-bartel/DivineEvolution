@@ -41,38 +41,15 @@ namespace DevOps_game
             {
                 currentState.playerName = input;
             }
+            else if (input == "help" || input == "?" || input == "h")
+            {
+
+            }
         }
         private static void displayText(string playerInput)
         {
             Console.Clear();
-            List<string> displayText = World[currentState.location].chooseText(playerInput);
-            int i = 0;
-            while (i < displayText.Count)
-            {
-				string[] lines = displayText[i]
-									.Replace("\t", new String(' ', 8))
-									.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-
-				for (int index = 0; index < lines.Length; index++) {
-					string process = lines[index];
-					List<String> wrapped = new List<string>();
-
-					while (process.Length > Console.WindowWidth) {
-						int wrapAt = process.LastIndexOf(' ', Math.Min(Console.WindowWidth - 1, process.Length));
-						if (wrapAt <= 0) break;
-
-						wrapped.Add(process.Substring(0, wrapAt));
-						process = process.Remove(0, wrapAt + 1);
-					}
-
-					foreach (string wrap in wrapped) {
-						Console.WriteLine(wrap);
-					}
-
-					Console.WriteLine(process);
-				}
-                i++;
-            }
+            Render.MainScreen(World[currentState.location].chooseText(playerInput));            
         }
         internal static string checker(Dictionary<string, string> inputs)
         {
