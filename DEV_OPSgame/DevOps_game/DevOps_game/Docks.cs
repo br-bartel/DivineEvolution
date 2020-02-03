@@ -15,7 +15,7 @@ namespace DevOps_game
                     "It takes a couple minutes, but you are finally able to lift yourself up and out of the cart. " +
                     "Looking around, you notice that you are standing on a dock on the edge of a small town. " +
                     "As you take in the view, you start to think back on your past, the memories hovering just out of reach. You think harder and harder, trying to remember...  " +
-                    "Aha! You remember that your name is: \nPlease enter your character's name:\n"};
+                    "Aha! You remember that your name is:\nPlease enter your character's name:\n"};
 
             List<string> defaultText = new List<string> 
                     {"It seems that remembering your name has it all starting to come back now. " +
