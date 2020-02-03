@@ -54,7 +54,10 @@ namespace DevOps_game
 
         private static void StatusDisplay(int leftEdge, int topEdge)
         {
-
+            Console.SetCursorPosition(leftEdge + 2, topEdge);
+            Console.WriteLine($"{Game.currentState.playerName}'s Current Status:");
+            Console.SetCursorPosition(leftEdge + 2, topEdge + 1);
+            Console.WriteLine($"Date: ???"); // will need to add date to state
         }
 
         internal static void MainScreen(List<string> text)
@@ -62,12 +65,22 @@ namespace DevOps_game
             int windowWidth = Console.WindowWidth;
             int windowHeight = Console.WindowHeight;
             verticalSlice = (windowWidth * 2 / 3);
-            horizSlice = windowHeight / 2;
+            horizSlice = windowHeight / 2 + 2;
             displayText = text;
             StoryDisplay(verticalSlice, horizSlice);
-            FlavorDisplay(verticalSlice, horizSlice);
+            FlavorDisplay(verticalSlice, horizSlice + 1); // positions below break
             MapDisplay(verticalSlice, horizSlice);
-            StatusDisplay(verticalSlice, horizSlice);
+            StatusDisplay(verticalSlice, horizSlice + 1); // positions below break
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                Console.SetCursorPosition(i, horizSlice);
+                Console.Write("-");
+            }
+            for (int j = 0; j < Console.WindowHeight; j++)
+            {
+                Console.SetCursorPosition(verticalSlice, j);
+                Console.Write("|");
+            }
         }
     }
 }

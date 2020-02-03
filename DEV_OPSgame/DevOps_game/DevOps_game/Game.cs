@@ -35,8 +35,9 @@ namespace DevOps_game
         private static void gameLoop() // method inside game control loop
         {
             displayText(input);
+            Console.SetCursorPosition(0, Console.WindowHeight);
             Console.Write("> ");
-            input = Console.ReadLine().ToLower(); // reads for user input
+            input = Console.ReadLine(); // reads for user input
             if (currentState.playerName == "") // for first scene, assign player name
             {
                 currentState.playerName = input;
@@ -45,6 +46,7 @@ namespace DevOps_game
             {
 
             }
+            input.ToLower(); // could maybe make turnary operator?
         }
         private static void displayText(string playerInput)
         {
