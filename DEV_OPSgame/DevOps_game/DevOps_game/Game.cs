@@ -35,7 +35,7 @@ namespace DevOps_game
         private static void gameLoop() // method inside game control loop
         {
             displayText(input);
-            Console.SetCursorPosition(0, Console.WindowHeight);
+            Console.SetCursorPosition(0, Console.WindowHeight - 2);
             Console.WriteLine(input);
             Console.Write("> ");
             input = Console.ReadLine(); // reads for user input
