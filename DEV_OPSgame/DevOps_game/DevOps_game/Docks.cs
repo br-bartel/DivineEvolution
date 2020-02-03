@@ -21,8 +21,8 @@ namespace DevOps_game
                     {"It seems that remembering your name has it all starting to come back now. " +
                     "You are a teacher at the University of Mages and have an exceptional understanding of the arcane arts, with your cautious demeanor making you a perfect fit for teaching the more dangerous subjects. " +
                     "Your dedication to your work leaves you with little time off, to the point that your boss has had to step in to force you to have a weekend to yourself. You remember leaving your home for your mandated weekend off... but where ? Why ? " +
-                    "Wait... You remember a small bit of information: Someone wearing a tuxedo is almost certainly responsible for your condition. \n", "Now that you feel that your mind is back in working order, you take inventory of what is in your pocket, curious as to if whoever left you in that sorry state decided to rob you blind as well.  " +
-                    "[Wallet]? Still there, nothing seems to be out of place. Coin [purse]? Seems to be all there, just as depressingly light as it was before. Pocket [watch]? Still attached to the inside of your coat. Torn off piece of [parchment]? Yup, just as you... wait. What’s that doing there? "
+                    "Wait... You remember a small bit of information: Someone wearing a tuxedo is almost certainly responsible for your condition. \n", "Now that you feel that your mind is back in working order, you take inventory of what is in your pocket, curious as to if whoever left you in that sorry state decided to rob you blind as well. " +
+                    "\u001b[32;1m[Wallet]\u001b[0m? Still there, nothing seems to be out of place. Coin \u001b[32;1m[purse]\u001b[0m? Seems to be all there, just as depressingly light as it was before. Pocket \u001b[32;1m[watch]\u001b[0m? Still attached to the inside of your coat. Torn off piece of \u001b[32;1m[parchment]\u001b[0m? Yup, just as you... wait. What’s that doing there? "
                     };
 
             List<string> sceneOneFlavor = new List<string>
