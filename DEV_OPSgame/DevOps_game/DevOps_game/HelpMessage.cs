@@ -18,7 +18,8 @@ namespace DevOps_game
                     break;
                 case 1:
                     result = String.Join(", ", Docks.validInputs.Keys);
-                    helpCount++;
+                    // helpCount++;
+                    helpCount = 0;
                     break;
                 case 2:
                     // result = Console.ReadLine(Game.currentState.cycle); // displays the description of the last scene/evironment/location that the player
