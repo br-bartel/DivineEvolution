@@ -35,15 +35,16 @@ namespace DevOps_game
         private static void gameLoop() // method inside game control loop
         {
             displayText(input);
+
+            Console.WriteLine(input);
+            
             Console.Write("> ");
+
             input = Console.ReadLine().ToLower(); // reads for user input
+
             if (currentState.playerName == "") // for first scene, assign player name
             {
                 currentState.playerName = input;
-            }
-            else if (input == "help" || input == "?" || input == "h")
-            {
-
             }
         }
         private static void displayText(string playerInput)
@@ -54,14 +55,17 @@ namespace DevOps_game
         internal static string checker(Dictionary<string, string> inputs)
         {
             bool isValid = inputs.ContainsKey(input); // checks if user input matches one of the defined value keys, returns true or false
-            if (isValid == false)
-            {
-                return InvalidEntry.Invalid(); // executes the invalid method that returns the error text
-            }
-            else if (input == currentState.playerName && currentState.cycle == 1)
+
+            if (currentState.playerName == input && currentState.cycle == 1)
             {
                 return "";
             }
+
+            else if (isValid == false)
+            {
+                return InvalidEntry.Invalid(); // executes the invalid method that returns the error text
+            }
+            
             else
             {
                 InvalidEntry.InvalidCount = 0; // reset the counter for the invalid method
