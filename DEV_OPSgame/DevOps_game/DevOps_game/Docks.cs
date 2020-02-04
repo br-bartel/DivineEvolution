@@ -138,6 +138,7 @@ namespace DevOps_game
                     };
                     validInputs = new Dictionary<string, List<string>>()
                     {
+
                         {"fisherman", new List<string>(fisherman)},
                         {"dockworkers", new List<string>(dockworkers)},
                         {"poster", new List<string>(poster)}

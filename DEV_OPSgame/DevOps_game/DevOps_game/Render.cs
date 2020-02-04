@@ -69,7 +69,8 @@ namespace DevOps_game
 
         private static void MapDisplay(int leftEdge, int bottomEdge)
         {
-
+            Console.SetCursorPosition(leftEdge + 2, 1);
+            Map.DisplayMap(leftEdge + 2);
         }
 
         private static void StatusDisplay(int leftEdge, int topEdge)
