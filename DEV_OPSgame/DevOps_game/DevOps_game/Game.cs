@@ -43,6 +43,7 @@ namespace DevOps_game
             Console.SetCursorPosition(0, Console.WindowHeight - 2);
             Console.WriteLine(input);
             Console.Write("> ");
+            previousInput = (input == "next") ? previousInput : input;
             input = Console.ReadLine(); // reads for user input
             
             if (currentState.playerName == "") // for first scene, assign player name
@@ -51,7 +52,6 @@ namespace DevOps_game
             }
 
             input = input.ToLower(); // could maybe make turnary operator?
-            previousInput = input;
 
         }
         private static void displayText(string playerInput)
@@ -59,24 +59,23 @@ namespace DevOps_game
             Console.Clear();
             Render.MainScreen(World[currentState.location].chooseText(playerInput));            
         }
-        internal static string checker(Dictionary<string, string> inputs)
+        internal static List<string> checker(Dictionary<string, List<string>> inputs)
         {
-            bool isValid = inputs.ContainsKey(input); // checks if user input matches one of the defined value keys, returns true or false
+            string currentInput = (input == "next") ? previousInput : input;
+            bool isValid = inputs.ContainsKey(currentInput); // checks if user input matches one of the defined value keys, returns true or false
 
-            if (currentState.playerName == input && currentState.cycle == 1)
-            {
-                return "";
-            }
-
-            else if (isValid == false)
-            {
-                return InvalidEntry.Invalid(); // executes the invalid method that returns the error text
-            }
-            
-            else
+            if (isValid)
             {
                 InvalidEntry.InvalidCount = 0; // reset the counter for the invalid method
-                return inputs[input]; // return the value of the selected key
+                return inputs[currentInput]; // return the value of the selected key
+            }            
+            else if ((currentState.playerName == currentInput && currentState.cycle == 1) || input == "next")
+            {
+                return new List<string>() { "" };
+            }
+            else
+            {
+                return new List<string>() {InvalidEntry.Invalid()}; // executes the invalid method that returns the error text
             }
         }
         /// <summary>
