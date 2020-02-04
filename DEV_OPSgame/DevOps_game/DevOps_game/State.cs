@@ -7,6 +7,6 @@ namespace DevOps_game
         public string playerName = "";
         public int cycle = 1;
         public string location = "Docks";
-        public Dictionary<string, bool> Conditions;
+        public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
     }
 }

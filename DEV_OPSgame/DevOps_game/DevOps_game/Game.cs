@@ -16,6 +16,11 @@ namespace DevOps_game
         /// </summary>
         public static string input = "";
 
+
+        public static string previousInput = "";
+        public static int sIndex = 1;
+        public static int fIndex = 1;
+
         static bool gameOver = false; // control for the game loop, will break loop if set to true
         /// <summary>
         /// Starts the game, initializes currentState, and contains the game loop
@@ -39,14 +44,14 @@ namespace DevOps_game
             Console.WriteLine(input);
             Console.Write("> ");
             input = Console.ReadLine(); // reads for user input
-            Console.SetCursorPosition(0, 0);
             
             if (currentState.playerName == "") // for first scene, assign player name
             {
                 currentState.playerName = input;
             }
 
-            input.ToLower(); // could maybe make turnary operator?
+            input = input.ToLower(); // could maybe make turnary operator?
+            previousInput = input;
 
         }
         private static void displayText(string playerInput)
