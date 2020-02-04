@@ -39,7 +39,7 @@ namespace DevOps_game
         }
         private static void FlavorDisplay(int rightEdge, int topEdge, List<string> flavor, int i)
         {
-            Console.SetCursorPosition(0, topEdge + i);
+            Console.SetCursorPosition(0, topEdge + 1);
             string[] lines = flavor[i]
                                 .Replace("\t", new String(' ', 8))
                                 .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
