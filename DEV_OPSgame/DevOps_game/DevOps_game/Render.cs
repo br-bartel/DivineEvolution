@@ -9,71 +9,61 @@ namespace DevOps_game
         internal static int verticalSlice;
         internal static int horizSlice;
         static Dictionary<string, List<string>> displayText = new Dictionary<string, List<string>>();
-        private static void StoryDisplay(int rightEdge, int bottomEdge, List<string> story)
+        private static void StoryDisplay(int rightEdge, int bottomEdge, List<string> story, int i)
         {
-            int i = 0;
-            while (i < story.Count)
+            string[] lines = story[i]
+                                .Replace("\t", new String(' ', 8))
+                                .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            for (int index = 0; index < lines.Length; index++)
             {
-                string[] lines = story[i]
-                                    .Replace("\t", new String(' ', 8))
-                                    .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                string process = lines[index];
+                List<String> wrapped = new List<string>();
 
-                for (int index = 0; index < lines.Length; index++)
+                while (process.Length > rightEdge)
                 {
-                    string process = lines[index];
-                    List<String> wrapped = new List<string>();
+                    int wrapAt = process.LastIndexOf(' ', Math.Min(rightEdge - 1, process.Length));
+                    if (wrapAt <= 0) break;
 
-                    while (process.Length > rightEdge)
-                    {
-                        int wrapAt = process.LastIndexOf(' ', Math.Min(rightEdge - 1, process.Length));
-                        if (wrapAt <= 0) break;
-
-                        wrapped.Add(process.Substring(0, wrapAt));
-                        process = process.Remove(0, wrapAt + 1);
-                    }
-
-                    foreach (string wrap in wrapped)
-                    {
-                        Console.WriteLine(wrap);
-                    }
-
-                    Console.WriteLine(process);
+                    wrapped.Add(process.Substring(0, wrapAt));
+                    process = process.Remove(0, wrapAt + 1);
                 }
-                i++;
-            }
+
+                foreach (string wrap in wrapped)
+                {
+                    Console.WriteLine(wrap);
+                }
+
+                Console.WriteLine(process);
+            }    
         }
-        private static void FlavorDisplay(int rightEdge, int topEdge, List<string> flavor)
+        private static void FlavorDisplay(int rightEdge, int topEdge, List<string> flavor, int i)
         {
-            int i = 0;
-            while (i < flavor.Count)
+            Console.SetCursorPosition(0, topEdge + i);
+            string[] lines = flavor[i]
+                                .Replace("\t", new String(' ', 8))
+                                .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            for (int index = 0; index < lines.Length; index++)
             {
-                Console.SetCursorPosition(0, topEdge + i);
-                string[] lines = flavor[i]
-                                    .Replace("\t", new String(' ', 8))
-                                    .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                string process = lines[index];
+                List<String> wrapped = new List<string>();
 
-                for (int index = 0; index < lines.Length; index++)
+                while (process.Length > rightEdge)
                 {
-                    string process = lines[index];
-                    List<String> wrapped = new List<string>();
+                    int wrapAt = process.LastIndexOf(' ', Math.Min(rightEdge - 1, process.Length));
+                    if (wrapAt <= 0) break;
 
-                    while (process.Length > rightEdge)
-                    {
-                        int wrapAt = process.LastIndexOf(' ', Math.Min(rightEdge - 1, process.Length));
-                        if (wrapAt <= 0) break;
-
-                        wrapped.Add(process.Substring(0, wrapAt));
-                        process = process.Remove(0, wrapAt + 1);
-                    }
-
-                    foreach (string wrap in wrapped)
-                    {
-                        Console.WriteLine(wrap);
-                    }
-
-                    Console.WriteLine(process);
+                    wrapped.Add(process.Substring(0, wrapAt));
+                    process = process.Remove(0, wrapAt + 1);
                 }
-                i++;
+
+                foreach (string wrap in wrapped)
+                {
+                    Console.WriteLine(wrap);
+                }
+
+                Console.WriteLine(process);
             }
         }
 
@@ -96,9 +86,20 @@ namespace DevOps_game
             int windowHeight = Console.WindowHeight;
             verticalSlice = (windowWidth * 2 / 3);
             horizSlice = windowHeight / 2 + 2;
-            displayText = text;
-            StoryDisplay(verticalSlice, horizSlice, text["story"]);
-            FlavorDisplay(verticalSlice, horizSlice + 1, text["flavor"]); // positions below break
+            displayText = text;           
+            if (Game.input == "next") 
+            {
+                if (text["flavor"].Count > Game.fIndex)
+                {
+                    Game.fIndex++;
+                } else if (text["story"].Count > Game.sIndex)
+                {
+                    Game.sIndex++;
+                }
+            }
+
+            StoryDisplay(verticalSlice, horizSlice, text["story"], Game.sIndex - 1);
+            FlavorDisplay(verticalSlice, horizSlice + 1, text["flavor"], Game.fIndex - 1); // positions below break
             MapDisplay(verticalSlice, horizSlice);
             StatusDisplay(verticalSlice, horizSlice + 1); // positions below break
             for (int i = 0; i < Console.WindowWidth; i++)
