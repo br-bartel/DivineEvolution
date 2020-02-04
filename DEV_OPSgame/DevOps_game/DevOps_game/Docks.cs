@@ -48,7 +48,6 @@ namespace DevOps_game
 			if (input == "help" || input == "?" || input == "h")
 			{
 				story.Add("flavor", new List<string> {HelpMessage.Help()});
-                currentF = "help";
 			}
             
             if (Game.currentState.cycle == 1)
@@ -57,7 +56,7 @@ namespace DevOps_game
                 {
                     story.Add("story", sceneOneStory);
                     currentS = "one";
-					if (currentF != "help") 
+					if (input != "help" && input != "?" && input != "h") 
 					{
                     	story.Add("flavor", sceneOneFlavor);
                         currentF = "one";
@@ -101,7 +100,7 @@ namespace DevOps_game
 					{
 						Game.currentState.Conditions.Add("parchment", true);
 					}
-					if (currentF != "help")
+					if (input != "help" && input != "?" && input != "h")
 					{
                     	story.Add("flavor", sceneTwoFlavor);
                         currentF = "two";
@@ -145,7 +144,7 @@ namespace DevOps_game
                     };
                     sceneThreeFlavor = Game.checker(validInputs);
                     HelpMessage.helpCount = 0;
-                    if (currentF != "help")
+                    if (input != "help" && input != "?" && input != "h")
                     {
                         story.Add("flavor", sceneThreeFlavor);
                         currentF = "three";

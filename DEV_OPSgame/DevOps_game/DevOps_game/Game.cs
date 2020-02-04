@@ -43,7 +43,7 @@ namespace DevOps_game
             Console.SetCursorPosition(0, Console.WindowHeight - 2);
             Console.WriteLine(input);
             Console.Write("> ");
-            previousInput = (input == "next") ? previousInput : input;
+            previousInput = (input == "next" || (input == "help" || input == "?" || input == "h")) ? previousInput : input;
             input = Console.ReadLine(); // reads for user input
             
             if (currentState.playerName == "") // for first scene, assign player name
