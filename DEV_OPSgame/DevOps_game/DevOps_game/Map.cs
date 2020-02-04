@@ -17,7 +17,11 @@ namespace DevOps_game
         static string OutskirtsText = "???";
         static readonly List<string> TextMap = new List<string> { $"{OutskirtsText}", "/", "\\", " \\", $" {TownText}", " /", "/", "\\", $"{DocksText}" };
 
-
+        /// <summary>
+        /// Displays the game map. Uses the left edge of partition as starting value for setting cursor position.
+        /// Also contains logic to check if locations have been visited and will update when current state updates.
+        /// </summary>
+        /// <param name="leftEdge"></param>
         internal static void DisplayMap(int leftEdge)
         {
             string currentLocation = Game.currentState.location;
