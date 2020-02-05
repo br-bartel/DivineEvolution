@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DevOps_game
 {
-    internal class Map
+    public class Map
     {
         static Dictionary<string, bool> PlacesVisited = new Dictionary<string, bool>
         {
@@ -13,7 +13,7 @@ namespace DevOps_game
             {"Outskirts", false }
         };
         static readonly string DocksText = "DOCKS";
-        static string TownText = "???";
+        public static string TownText = "???";
         static string OutskirtsText = "???";
         static readonly List<string> TextMap = new List<string> { $"{OutskirtsText}", "/", "\\", " \\", $" {TownText}", " /", "/", "\\", $"{DocksText}" };
 
@@ -22,7 +22,7 @@ namespace DevOps_game
         /// Also contains logic to check if locations have been visited and will update when current state updates.
         /// </summary>
         /// <param name="leftEdge"></param>
-        internal static void DisplayMap(int leftEdge)
+        public static void DisplayMap(int leftEdge)
         {
             string currentLocation = Game.currentState.location;
             if (PlacesVisited.ContainsKey(currentLocation) && PlacesVisited[currentLocation] == false)
@@ -38,7 +38,7 @@ namespace DevOps_game
                 }
             }
             int i = 1;
-            foreach  (string text in TextMap)
+            foreach (string text in TextMap)
             {
                 Console.SetCursorPosition(leftEdge, i);
                 Console.WriteLine(text);

@@ -34,5 +34,19 @@ namespace Tests
             Assert.AreEqual(Game.input, "next");
             Assert.AreEqual(expected.Count, actual.Count);
         }
+        [TestMethod]
+        public void MapTest() // have to comment out console write to test only logic
+        {
+            Game.currentState = new State();
+            Game.currentState.playerName = "jfk";
+            Game.currentState.cycle = 1;
+            Game.currentState.location = "Town Square";
+
+            Map.DisplayMap(0);
+
+            string expected = "TOWN SQUARE";
+
+            Assert.AreEqual(expected, Map.TownText);
+        }
     }
 }
