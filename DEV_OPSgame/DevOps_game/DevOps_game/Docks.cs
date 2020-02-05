@@ -95,13 +95,13 @@ namespace DevOps_game
                     };
 
 					sceneTwoFlavor = Game.checker(validInputs);
-					HelpMessage.helpCount = 0;
 					if (Game.previousInput == "parchment" && Game.fIndex == 2) 
 					{
 						Game.currentState.Conditions.Add("parchment", true);
 					}
 					if (input != "help" && input != "?" && input != "h")
 					{
+					    HelpMessage.helpCount = 0;
                     	story.Add("flavor", sceneTwoFlavor);
                         currentF = "two";
 					}
@@ -142,10 +142,10 @@ namespace DevOps_game
                         {"dockworkers", new List<string>(dockworkers)},
                         {"poster", new List<string>(poster)}
                     };
-                    sceneThreeFlavor = Game.checker(validInputs);
-                    HelpMessage.helpCount = 0;
+                    sceneThreeFlavor = Game.checker(validInputs);                    
                     if (input != "help" && input != "?" && input != "h")
                     {
+                        HelpMessage.helpCount = 0;
                         story.Add("flavor", sceneThreeFlavor);
                         currentF = "three";
                     }
