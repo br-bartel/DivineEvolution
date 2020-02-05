@@ -39,7 +39,7 @@ namespace DevOps_game
             if (i + 1 < story.Count)
             {
                 Console.SetCursorPosition(0, bottomEdge - 1);
-                Console.WriteLine("Type \u001b[32; 1m[next]\u001b[0m to continue.");
+                Console.WriteLine("Type \u001b[32;1m[next]\u001b[0m to continue.");
             }
         }
         private static void FlavorDisplay(int rightEdge, int topEdge, List<string> flavor, int i)
@@ -73,7 +73,7 @@ namespace DevOps_game
             if (i + 1 < flavor.Count)
             {
                 Console.SetCursorPosition(0, Console.WindowHeight - 3);
-                Console.WriteLine("Type \u001b[32; 1m[next]\u001b[0m to continue.");
+                Console.WriteLine("Type \u001b[32;1m[next]\u001b[0m to continue.");
             }
         }
 
