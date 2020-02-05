@@ -35,11 +35,16 @@ namespace DevOps_game
                 }
 
                 Console.WriteLine(process);
-            }    
+            }
+            if (i + 1 < story.Count)
+            {
+                Console.SetCursorPosition(0, bottomEdge - 1);
+                Console.WriteLine("Type \u001b[32; 1m[next]\u001b[0m to continue.");
+            }
         }
         private static void FlavorDisplay(int rightEdge, int topEdge, List<string> flavor, int i)
         {
-            Console.SetCursorPosition(0, topEdge + 1);
+            Console.SetCursorPosition(0, topEdge);
             string[] lines = flavor[i]
                                 .Replace("\t", new String(' ', 8))
                                 .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
@@ -65,6 +70,11 @@ namespace DevOps_game
 
                 Console.WriteLine(process);
             }
+            if (i + 1 < flavor.Count)
+            {
+                Console.SetCursorPosition(0, Console.WindowHeight - 3);
+                Console.WriteLine("Type \u001b[32; 1m[next]\u001b[0m to continue.");
+            }
         }
 
         private static void MapDisplay(int leftEdge, int bottomEdge)
@@ -78,7 +88,7 @@ namespace DevOps_game
             Console.SetCursorPosition(leftEdge + 2, topEdge);
             Console.WriteLine($"{Game.currentState.playerName}'s Current Status:");
             Console.SetCursorPosition(leftEdge + 2, topEdge + 1);
-            Console.WriteLine($"Date: ???"); // will need to add date to state
+            Console.WriteLine($"Date: {Game.currentState.date}");
         }
 
         internal static void MainScreen(Dictionary<string, List<string>> text)

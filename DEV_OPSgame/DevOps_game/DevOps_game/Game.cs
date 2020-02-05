@@ -12,16 +12,22 @@ namespace DevOps_game
         /// </summary>
         public static State currentState;
         /// <summary>
+        /// Contains a KVP of the places in the world
+        /// </summary>
+        public static Dictionary<string, Location> World = new Dictionary<string, Location>();
+        /// <summary>
         /// Field that holds user input
         /// </summary>
         public static string input = "";
-
-
         public static string previousInput = "";
-        public static int sIndex = 1;
-        public static int fIndex = 1;
 
+        /// <summary>
+        /// Story and Flavor indexes. Keeps track of what text should be shown.
+        /// </summary>
+        public static int sIndex = 1; // add to state?
+        public static int fIndex = 1;
         static bool gameOver = false; // control for the game loop, will break loop if set to true
+
         /// <summary>
         /// Starts the game, initializes currentState, and contains the game loop
         /// </summary>
@@ -49,19 +55,20 @@ namespace DevOps_game
             if (currentState.playerName == "") // for first scene, assign player name
             {
                 currentState.playerName = input;
+            } else
+            {
+                input = input.ToLower(); // could maybe make turnary operator?
             }
-
-            input = input.ToLower(); // could maybe make turnary operator?
-
         }
         private static void displayText(string playerInput)
         {
             Console.Clear();
             Render.MainScreen(World[currentState.location].chooseText(playerInput));            
         }
-        internal static List<string> checker(Dictionary<string, List<string>> inputs)
+        internal static List<string> checker(Dictionary<string, List<string>> inputs, out string currentInput)
         {
-            string currentInput = (input == "next") ? previousInput : input;
+            currentInput = (input == "next" || (input == "help" || input == "?" || input == "h")) ? previousInput : input;
+
             bool isValid = inputs.ContainsKey(currentInput); // checks if user input matches one of the defined value keys, returns true or false
 
             if (isValid)
@@ -78,9 +85,5 @@ namespace DevOps_game
                 return new List<string>() {InvalidEntry.Invalid()}; // executes the invalid method that returns the error text
             }
         }
-        /// <summary>
-        /// Contains a KVP of the places in the world
-        /// </summary>
-        public static Dictionary<string, Location> World = new Dictionary<string, Location>();
     }
 }
