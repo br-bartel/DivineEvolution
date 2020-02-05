@@ -9,6 +9,12 @@ namespace DevOps_game
         string previousS = "";
         public string currentF = "";
         string previousF = "";
+		Dictionary<string, bool> picks = new Dictionary<string, bool>() 
+		{
+			{"fisherman", false},
+			{"dockworkers", false},
+			{"poster", false}
+		};
         public override Dictionary<string, List<string>> chooseText(string input)
         {
             List<string> sceneOneStory = new List<string>
@@ -24,7 +30,7 @@ namespace DevOps_game
 				};
 
             List<string> sceneOneFlavor = new List<string>
-                    { "Please enter your character's name:\n" };
+				{ "Please enter your character's name:\n" };
 
             List<string> sceneTwoStory = new List<string> 
 				{
@@ -107,46 +113,70 @@ namespace DevOps_game
                 }
 				else 
 				{
-					story.Add("story", sceneThreeStory);
-                    currentS = "three";
-                    List<string> sceneThreeFlavor = new List<string>();
-                    string[] fisherman = {
-                        "You approach the fisherman, who is on the pier loading crates onto his boat. As you get closer, you hear him whistling a jaunty tune.",
-                        "You wait until he looks up before greeting him, not wanting to get impaled by the harpoon he’s holding if you startle him.",
-                        "“Excuse me, sir?” you ask, somewhat hesitantly. “What can I do for ya, friend?” is his energetic response. “Lookin’ for work? The dockworkers are always lookin’ for an extra hand if ya can spare it.",
-                        "Or are ya lookin’ for some o’ the... goods?” He trails off towards the end, losing some of his friendly demeanor as he levels you with a flat look.",
-                        "You cautiously respond “No, no, not looking for either of those. I was wondering if you had seen anything out of the ordinary since last night.”", 
-                        "He adopts a face of concentration looking at the ground as he thinks and inadvertently levels his harpoon at your face. “Well, I’ve been down ‘ere since before sunrise, waiting for my delivery o’... supplies and stuff.",
-                        "Only thing I seen out o’ normal’s been a flash o’ light o’er on the dock. Figured ‘twas just the lighthouse at first, but it looked to ‘ave been from on high.",
-                        "Don’t rightly know much else; when I saw you in the cart, I thought you was just a drunk who couldn’t make it the rest o’ the way home.”",
-                        "You thank the sailor for his time and go back to the dock."
-                    };
-                    string[] dockworkers = {
-                        "You walk over to group of dockworkers gathered on the docks. One of the older ones sees your approach, spits on the ground and goes back to chewing as he gruffly calls out “Wha’ is it ya want?",
-                        "Don’t need no more help fer the day and ya’d have ta go talk to bossman if you’s lookin’ to ship somet’in.”",
-                        "Taken aback by the gruff greeting, you tentatively respond “I was just wondering if any of you had seen anything out of the ordinary since last night.”",
-                        "The dockworker spits again, this time closer to your feet before replying “Ain’t seen nothi’n ‘sides the harpoon wieldin’ madman loadin ‘is boat.",
-                        "Now if ya ain’t got nothi’n else, git goin’ and leave us alone.” Taking the hint, you hurry away from the group."
-                    };
-                    string[] poster = {
-                        "You examine the poster nailed to a post nearby where you woke up. The sketch is of a young man with a scar above his left eye with a rather prominent handlebar moustache.",
-                        "The sketch doesn’t show much of his torso, but it appears to show a bow tie and a collared shirt. Could there be a tuxedo jacket as a part of the outfit too?",
-                        "The text of the poster reads: WANTED: \nBY THE ORDER OF THE CROWN FOR CRIMES INCLUDING: \nPIRACY; \nCRIMES OF THE HIGH SEAS,",
-                        "\nMURDER, \nDESECRATION OF MOSTE SACRED SITES, \nand littering. \nREWARD OF 5,000 GOLD PIECES FOR HIS HEAD LIVING XOR DEAD."
-                    };
-                    validInputs = new Dictionary<string, List<string>>()
-                    {
-
-                        {"fisherman", new List<string>(fisherman)},
-                        {"dockworkers", new List<string>(dockworkers)},
-                        {"poster", new List<string>(poster)}
-                    };
-                    sceneThreeFlavor = Game.checker(validInputs, out currentF);                    
-                    if (input != "help" && input != "?" && input != "h")
-                    {
-                        HelpMessage.helpCount = 0;
-                        story.Add("flavor", sceneThreeFlavor);
-                    }
+					if (picks["fisherman"] && picks["dockworkers"] && picks["poster"]) 
+					{
+						Game.currentState.location = "TownSquare";
+						currentS = "ts";
+						currentF = "tsf";
+						story.Add("story", new List<string>() { "A transition..."});
+						story.Add("flavor", new List<string>() { "Next" });
+					}
+					else 
+					{
+						story.Add("story", sceneThreeStory);
+						currentS = "three";
+						List<string> sceneThreeFlavor = new List<string>();
+						string[] fisherman = {
+							"You approach the fisherman, who is on the pier loading crates onto his boat. As you get closer, you hear him whistling a jaunty tune.",
+							"You wait until he looks up before greeting him, not wanting to get impaled by the harpoon he’s holding if you startle him.",
+							"“Excuse me, sir?” you ask, somewhat hesitantly. “What can I do for ya, friend?” is his energetic response. “Lookin’ for work? The dockworkers are always lookin’ for an extra hand if ya can spare it.",
+							"Or are ya lookin’ for some o’ the... goods?” He trails off towards the end, losing some of his friendly demeanor as he levels you with a flat look.",
+							"You cautiously respond “No, no, not looking for either of those. I was wondering if you had seen anything out of the ordinary since last night.”", 
+							"He adopts a face of concentration looking at the ground as he thinks and inadvertently levels his harpoon at your face. “Well, I’ve been down ‘ere since before sunrise, waiting for my delivery o’... supplies and stuff.",
+							"Only thing I seen out o’ normal’s been a flash o’ light o’er on the dock. Figured ‘twas just the lighthouse at first, but it looked to ‘ave been from on high.",
+							"Don’t rightly know much else; when I saw you in the cart, I thought you was just a drunk who couldn’t make it the rest o’ the way home.”",
+							"You thank the sailor for his time and go back to the dock."
+						};
+						string[] dockworkers = {
+							"You walk over to group of dockworkers gathered on the docks. One of the older ones sees your approach, spits on the ground and goes back to chewing as he gruffly calls out “Wha’ is it ya want?",
+							"Don’t need no more help fer the day and ya’d have ta go talk to bossman if you’s lookin’ to ship somet’in.”",
+							"Taken aback by the gruff greeting, you tentatively respond “I was just wondering if any of you had seen anything out of the ordinary since last night.”",
+							"The dockworker spits again, this time closer to your feet before replying “Ain’t seen nothi’n ‘sides the harpoon wieldin’ madman loadin ‘is boat.",
+							"Now if ya ain’t got nothi’n else, git goin’ and leave us alone.” Taking the hint, you hurry away from the group."
+						};
+						string[] poster = {
+							"You examine the poster nailed to a post nearby where you woke up. The sketch is of a young man with a scar above his left eye with a rather prominent handlebar moustache.",
+							"The sketch doesn’t show much of his torso, but it appears to show a bow tie and a collared shirt. Could there be a tuxedo jacket as a part of the outfit too?",
+							"The text of the poster reads: WANTED: \nBY THE ORDER OF THE CROWN FOR CRIMES INCLUDING: \nPIRACY; \nCRIMES OF THE HIGH SEAS,",
+							"\nMURDER, \nDESECRATION OF MOSTE SACRED SITES, \nand littering. \nREWARD OF 5,000 GOLD PIECES FOR HIS HEAD LIVING XOR DEAD."
+						};
+						validInputs = new Dictionary<string, List<string>>()
+						{
+							{"fisherman", new List<string>(fisherman)},
+							{"dockworkers", new List<string>(dockworkers)},
+							{"poster", new List<string>(poster)}
+						};
+						sceneThreeFlavor = Game.checker(validInputs, out currentF);  
+						
+						if (currentF == "fisherman" && Game.fIndex == fisherman.Length - 1)
+						{
+							picks["fisherman"] = true;
+						}        
+						if (currentF == "dockworkers" && Game.fIndex == dockworkers.Length - 1)
+						{
+							picks["dockworkers"] = true;
+						}  
+						if (currentF == "poster" && Game.fIndex == poster.Length - 1)
+						{
+							picks["poster"] = true;
+						}  
+						
+						if (input != "help" && input != "?" && input != "h")
+						{
+							HelpMessage.helpCount = 0;
+							story.Add("flavor", sceneThreeFlavor);
+						}
+					}
                 }
             }
 
