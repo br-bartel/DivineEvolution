@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace DevOps_game
 {
-    static class Game
+    public static class Game
     {
         /// <summary>
         /// State field containing all state related variables
@@ -55,7 +55,8 @@ namespace DevOps_game
             if (currentState.playerName == "") // for first scene, assign player name
             {
                 currentState.playerName = input;
-            } else
+            }
+            else
             {
                 input = input.ToLower(); // could maybe make turnary operator?
             }
@@ -65,7 +66,7 @@ namespace DevOps_game
             Console.Clear();
             Render.MainScreen(World[currentState.location].chooseText(playerInput));            
         }
-        internal static List<string> checker(Dictionary<string, List<string>> inputs, out string currentInput)
+        public static List<string> checker(Dictionary<string, List<string>> inputs, out string currentInput)
         {
             currentInput = (input == "next" || (input == "help" || input == "?" || input == "h")) ? previousInput : input;
 
