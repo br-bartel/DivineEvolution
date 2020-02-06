@@ -5,10 +5,7 @@ namespace DevOps_game
 {
     public class Docks : Location
     {
-        public string currentS = "";
-        string previousS = "";
-        public string currentF = "";
-        string previousF = "";
+       
 		Dictionary<string, bool> picks = new Dictionary<string, bool>() 
 		{
 			{"fisherman", false},
