@@ -39,14 +39,14 @@ namespace DevOps_game
 					"Your dedication to your work leaves you with little time off, to the point that your boss has had to step in to force you to have a weekend to yourself. You remember leaving your home for your mandated weekend off... but where ? Why ? " +
                     "Wait... You remember a small bit of information: Someone wearing a tuxedo is almost certainly responsible for your condition.", 
 					"Now that you feel that your mind is back in working order, you take inventory of what is in your pocket, curious as to if whoever left you in that sorry state decided to rob you blind as well. " +
-					"\u001b[32;1m[Wallet]\u001b[0m? Still there, nothing seems to be out of place. Coin \u001b[32;1m[purse]\u001b[0m? Seems to be all there, just as depressingly light as it was before. Pocket \u001b[32;1m[watch]\u001b[0m? Still attached to the inside of your coat. Torn off piece of \u001b[32;1m[parchment]\u001b[0m? Yup, just as you... wait. What’s that doing there? "
+					"\u001b[32;1;4m[Wallet]\u001b[0m? Still there, nothing seems to be out of place. Coin \u001b[32;1;4m[purse]\u001b[0m? Seems to be all there, just as depressingly light as it was before. Pocket \u001b[32;1;4m[watch]\u001b[0m? Still attached to the inside of your coat. Torn off piece of \u001b[32;1;4m[parchment]\u001b[0m? Yup, just as you... wait. What’s that doing there? "
 				};
 
             List<string> sceneThreeStory = new List<string> 
 				{
 					"Now that you have your wits about you again, you decide it’s high time to try and get some answers. You look around the docks, seeing if there might be something or someone that might be able to give you answers. " +
-                    "On the pier, there stands a seasoned \u001b[32;1m[fisherman]\u001b[0m who appears to be loading up his boat for another trip out. Maybe he saw something that can explain your condition? To your right, " +
-                    "a group of \u001b[32;1m[dockworkers]\u001b[0m are gathered around a few shipping crates. Out of the group of them, maybe one of them saw something happen? On the wall is a wanted \u001b[32;1m[poster]\u001b[0m. It might not have answers, but who knows? It could trigger a memory... "
+                    "On the pier, there stands a seasoned \u001b[32;1;4m[fisherman]\u001b[0m who appears to be loading up his boat for another trip out. Maybe he saw something that can explain your condition? To your right, " +
+                    "a group of \u001b[32;1;4m[dockworkers]\u001b[0m are gathered around a few shipping crates. Out of the group of them, maybe one of them saw something happen? On the wall is a wanted \u001b[32;1;4m[poster]\u001b[0m. It might not have answers, but who knows? It could trigger a memory... "
                 };
 
             Dictionary<string, List<string>> story = new Dictionary<string, List<string>>();

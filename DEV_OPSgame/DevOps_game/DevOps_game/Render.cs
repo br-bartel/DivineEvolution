@@ -9,6 +9,7 @@ namespace DevOps_game
         internal static int verticalSlice;
         internal static int horizSlice;
         static Dictionary<string, List<string>> displayText = new Dictionary<string, List<string>>();
+
         private static void StoryDisplay(int rightEdge, int bottomEdge, List<string> story, int i)
         {
             string[] lines = story[i]
@@ -39,7 +40,8 @@ namespace DevOps_game
             if (i + 1 < story.Count)
             {
                 Console.SetCursorPosition(0, bottomEdge - 1);
-                Console.WriteLine("Type \u001b[32;1m[next]\u001b[0m to continue.");
+                Console.WriteLine("Type \u001b[32;1;4m[next]\u001b[0m to continue.");
+               
             }
         }
         private static void FlavorDisplay(int rightEdge, int topEdge, List<string> flavor, int i)
@@ -80,6 +82,7 @@ namespace DevOps_game
         private static void MapDisplay(int leftEdge, int bottomEdge)
         {
             Console.SetCursorPosition(leftEdge + 2, 1);
+
             Map.DisplayMap(leftEdge + 2);
         }
 
@@ -89,6 +92,8 @@ namespace DevOps_game
             Console.WriteLine($"{Game.currentState.playerName}'s Current Status:");
             Console.SetCursorPosition(leftEdge + 2, topEdge + 1);
             Console.WriteLine($"Date: {Game.currentState.date}");
+            Console.SetCursorPosition(leftEdge + 2, Console.WindowHeight);
+            Console.WriteLine("Type \u001b[32;1;4m[help]\u001b[0m to get the clue.");
         }
 
         internal static void MainScreen(Dictionary<string, List<string>> text)
