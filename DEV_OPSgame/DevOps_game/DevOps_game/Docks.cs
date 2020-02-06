@@ -171,7 +171,7 @@ namespace DevOps_game
 
 			if (picks["fisherman"] && picks["dockworkers"] && picks["poster"])
 			{
-				Game.currentState.location = "TownSquare";
+				Game.currentState.location = "Town Square";
 				currentS = "ts";
 				currentF = "ts";
 				story["story"] =  new List<string>() { "After investigating your options, you start to stroll along the road leading into the town, wracking your brains along the way for anything else that could help you make heads or tails of your situation. You are abruptly pulled from your thoughts as someone bumps into you and hurries on their way. Looking after them, their clothing seems a bit out of place for someone coming from the docks, wearing a top hat and... wait a second... is that a tuxedo jacket? You shout out after them, startling them into a run. You give chase, the chance that the well-tuxedoed individual knows something is too great for you to ignore. As you approach what appears to be the town square, you begin to summon some arcane energy, hoping to summon something into their path to trip them up. Suddenly, two carriages coming from opposite directions pass each other between you and the tuxedoed individual. After they clear the street you prepare to resume the chase. Except... they are nowhere to be seen. Well, that’s disappointing." };
