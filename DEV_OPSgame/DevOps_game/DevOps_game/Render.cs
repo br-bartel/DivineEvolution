@@ -92,7 +92,7 @@ namespace DevOps_game
             Console.WriteLine($"{Game.currentState.playerName}'s Current Status:");
             Console.SetCursorPosition(leftEdge + 2, topEdge + 1);
             Console.WriteLine($"Date: {Game.currentState.date}");
-            Console.SetCursorPosition(leftEdge + 2, Console.WindowHeight);
+            Console.SetCursorPosition(leftEdge + 2, Console.WindowHeight - 2);
             Console.WriteLine("Type \u001b[32;1;4m[help]\u001b[0m to get the clue.");
         }
 

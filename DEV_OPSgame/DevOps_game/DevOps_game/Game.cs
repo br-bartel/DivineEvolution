@@ -34,7 +34,7 @@ namespace DevOps_game
         internal static void startGame()
         {
             World.Add("Docks", new Docks());
-            World.Add("TownSquare", new TownSquare());
+            World.Add("Town Square", new TownSquare());
             World.Add("Outskirts", new Outskirts());
 
             currentState = new State();

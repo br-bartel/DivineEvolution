@@ -13,9 +13,8 @@ namespace DevOps_game
             {"Outskirts", false }
         };
         static readonly string DocksText = "DOCKS";
-        public static string TownText = "???";
+        static string TownText = "???";
         static string OutskirtsText = "???";
-        static readonly List<string> TextMap = new List<string> { $"{OutskirtsText}", "/", "\\", " \\", $" {TownText}", " /", "/", "\\", $"{DocksText}" };
 
         /// <summary>
         /// Displays the game map. Uses the left edge of partition as starting value for setting cursor position.
@@ -38,6 +37,7 @@ namespace DevOps_game
                 }
             }
             int i = 1;
+            List<string> TextMap = new List<string> { $"{OutskirtsText}", "/", "\\", " \\", $" {TownText}", " /", "/", "\\", $"{DocksText}" };
             foreach (string text in TextMap)
             {
                 Console.SetCursorPosition(leftEdge, i);
