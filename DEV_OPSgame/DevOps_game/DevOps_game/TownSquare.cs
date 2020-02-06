@@ -14,6 +14,7 @@ namespace DevOps_game
 		public override Dictionary<string, List<string>> chooseText(string input) 
 		{
 	        Dictionary<string, List<string>> story = new Dictionary<string, List<string>>();
+
 			if (Game.currentState.cycle <= 3) {
 
 				string[] tavern = 
@@ -37,6 +38,7 @@ namespace DevOps_game
 					};
 
 				List<string> sceneOneFlavor = Game.checker(validInputs, out currentF);
+
 				story.Add("story", sceneOneStory);
 				story.Add("flavor", sceneOneFlavor);
 			}
