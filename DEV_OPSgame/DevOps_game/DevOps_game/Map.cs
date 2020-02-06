@@ -12,9 +12,9 @@ namespace DevOps_game
             {"Town Square", false },
             {"Outskirts", false }
         };
-        static readonly string DocksText = "DOCKS";
-        static string TownText = "???";
-        static string OutskirtsText = "???";
+        public static readonly string DocksText = "DOCKS";
+        public static string TownText = "???";
+        public static string OutskirtsText = "???";
 
         /// <summary>
         /// Displays the game map. Uses the left edge of partition as starting value for setting cursor position.
