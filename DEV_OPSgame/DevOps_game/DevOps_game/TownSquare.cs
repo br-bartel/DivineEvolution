@@ -12,7 +12,7 @@ namespace DevOps_game
 		public override Dictionary<string, List<string>> chooseText(string input) 
 		{
 	        Dictionary<string, List<string>> story = new Dictionary<string, List<string>>();
-			if (Game.currentState.cycle > 3) {
+			if (Game.currentState.cycle < 3) {
 				story.Add("story", sceneOneStory);
 				story.Add("flavor", sceneOneFlavor);
 			}
