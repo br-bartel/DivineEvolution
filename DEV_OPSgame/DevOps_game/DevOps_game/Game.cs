@@ -26,8 +26,8 @@ namespace DevOps_game
         /// </summary>
         public static int sIndex = 1; // add to state?
         public static int fIndex = 1;
+		public static string heldName = "";
         static bool gameOver = false; // control for the game loop, will break loop if set to true
-
         /// <summary>
         /// Starts the game, initializes currentState, and contains the game loop
         /// </summary>
@@ -56,7 +56,11 @@ namespace DevOps_game
             
             if (currentState.playerName == "") // for first scene, assign player name
             {
-                currentState.playerName = input;
+                if (currentState.cycle == 1)
+                {
+                    currentState.playerName = input;
+                    heldName = input;
+                }                
             }
             else
             {
