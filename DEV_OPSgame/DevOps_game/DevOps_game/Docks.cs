@@ -75,7 +75,8 @@ namespace DevOps_game
 				currentS = "one";
 				if (input != "help" && input != "?" && input != "h") 
 				{
-					story.Add("flavor", new List<string>(){$"It is {Game.heldName}"});
+					story.Add("flavor", new List<string>(){$"It's... {Game.heldName}!"});
+					Game.currentState.playerName = Game.heldName;
 					currentF = "one";
 				}
 			}
@@ -97,12 +98,27 @@ namespace DevOps_game
 					"The silver pocket watch that your father got you upon your graduation from University.",
 					"It has an engraving on the back - \"A wizard is never late, nor is he early, he arrives precisely when he means to.\" - your father’s favorite quote from the old bard’s tale Rings of the Lord."
 				};
-				string[] parchment =
+				string[] parchment;
+				if (Game.currentState.cycle == 1) 
 				{
-					"You unfold the parchment, trying to make sense of what it says around the damp spots that has caused the ink to bleed.", 
-					"All you can really puzzle out is that it's dated the 16th of Donnestag. Well, that makes sense, given that your holiday was supposed to be the 15th through the 17th. ",
-					"You figure today must be the 17th or, if you’re particularly unlucky, the 18th. Your boss is the understanding sort, right? \n \n Type \u001b[32;1m[next]\u001b[0m to continue."
-				};
+					parchment = new string[]
+					{
+						"You unfold the parchment, trying to make sense of what it says around the damp spots that has caused the ink to bleed.", 
+						"All you can really puzzle out is that it's dated the 16th of Donnestag. Well, that makes sense, given that your holiday was supposed to be the 15th through the 17th. ",
+						"You figure today must be the 17th or, if you’re particularly unlucky, the 18th. Your boss is the understanding sort, right? \n \n Type \u001b[32;1m[next]\u001b[0m to continue."
+					};
+
+				} 
+				else 
+				{
+					parchment = new string[]
+					{
+						"You unfold the parchment, trying to make sense of what it says around the damp spots that has caused the ink to bleed.", 
+						"All you can really puzzle out is that it's dated the 16th of Donnestag. Well, that makes sense, given that your holiday was supposed to be the 15th through the 17th. ",
+						"You figure today must be the 17th or, if you’re particularly unlucky, the 18th. Your boss is the understanding sort, right?",
+						"Wait a minute! You wrote this. You feel like memories are starting to bubble up and then... The Happy Flamingo??? What the heck is that?\nType \u001b[32;1m[next]\u001b[0m to continue."
+					};
+				}
 				validInputs = new Dictionary<string, List<string>>()
 				{                      
 					{ "wallet", new List<string>(wallet)},
