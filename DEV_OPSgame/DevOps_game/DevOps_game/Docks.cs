@@ -6,7 +6,7 @@ namespace DevOps_game
     public class Docks : Location
     {
        
-		Dictionary<string, bool> picks = new Dictionary<string, bool>() 
+		public static Dictionary<string, bool> picks = new Dictionary<string, bool>() 
 		{
 			{"fisherman", false},
 			{"dockworkers", false},
@@ -63,24 +63,20 @@ namespace DevOps_game
 					story.Add("flavor", sceneOneFlavor);
 					currentF = "one";
 				}
-			} else if (Game.currentState.cycle == 2)
+			} 
+			else if (Game.currentState.playerName == "" && Game.currentState.cycle == 2)
 			{
-				Game.currentState.Conditions["parchment"] = false;
 				
-				picks["fisherman"] = false;
-				picks["dockworkers"] = false;
-				picks["poster"] = false;
-
 				story.Add("story", new List<string>(){"You awaken … There is the distinct taste of sushi lingering in your mouth … You remember your name …"});
 				currentS = "one";
 				if (input != "help" && input != "?" && input != "h") 
 				{
-					story.Add("flavor", new List<string>(){$"It's... {Game.heldName}!"});
+					story.Add("flavor", new List<string>(){$"It's... {Game.heldName}!\nType \u001b[32;1m[next]\u001b[0m to continue." });
 					Game.currentState.playerName = Game.heldName;
 					currentF = "one";
 				}
 			}
-			else if (!Game.currentState.Conditions.ContainsKey("parchment"))
+			else if (!Game.currentState.Conditions.ContainsKey("parchment") || Game.currentState.Conditions["parchment"] == false)
 			{
 				story.Add("story", sceneTwoStory);
 				currentS = "two";
@@ -105,7 +101,7 @@ namespace DevOps_game
 					{
 						"You unfold the parchment, trying to make sense of what it says around the damp spots that has caused the ink to bleed.", 
 						"All you can really puzzle out is that it's dated the 16th of Donnestag. Well, that makes sense, given that your holiday was supposed to be the 15th through the 17th. ",
-						"You figure today must be the 17th or, if you’re particularly unlucky, the 18th. Your boss is the understanding sort, right? \n \n Type \u001b[32;1m[next]\u001b[0m to continue."
+						"You figure today must be the 17th or, if you’re particularly unlucky, the 18th. Your boss is the understanding sort, right?\nType \u001b[32;1m[next]\u001b[0m to continue."
 					};
 
 				} 
@@ -128,9 +124,9 @@ namespace DevOps_game
 				};
 
 				sceneTwoFlavor = Game.checker(validInputs, out currentF);
-				if (Game.previousInput == "parchment" && Game.fIndex == 2) 
+				if (Game.previousInput == "parchment" && Game.fIndex == 3) 
 				{
-					if (Game.currentState.cycle < 2) 
+					if (Game.currentState.cycle == 1) 
 					{
 						Game.currentState.Conditions.Add("parchment", true);
 					} 

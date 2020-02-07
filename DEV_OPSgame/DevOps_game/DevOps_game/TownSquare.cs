@@ -19,7 +19,7 @@ namespace DevOps_game
 
 				string[] tavern = 
 				{
-					"You decide to quash your crippling disappointment with the tried and true method of copious amounts of alcohol."
+					"You decide to quash your crippling disappointment with the tried and true method of copious amounts of alcohol.\nType \u001b[32;1;4m[next]\u001b[0m to continue."
 				};
 				string[] inn = 
 				{

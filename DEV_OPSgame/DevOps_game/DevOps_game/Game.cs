@@ -56,7 +56,11 @@ namespace DevOps_game
             
             if (currentState.playerName == "") // for first scene, assign player name
             {
-                currentState.playerName = input;
+                if (currentState.cycle == 1)
+                {
+                    currentState.playerName = input;
+                    heldName = input;
+                }                
             }
             else
             {

@@ -6,7 +6,7 @@ namespace DevOps_game
 {
     public class Map
     {
-        static Dictionary<string, bool> PlacesVisited = new Dictionary<string, bool>
+        public static Dictionary<string, bool> PlacesVisited = new Dictionary<string, bool>
         {
             {"Docks", true },
             {"Town Square", false },
