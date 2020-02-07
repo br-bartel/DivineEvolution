@@ -45,14 +45,14 @@ namespace DevOps_game
 			if (changeScene) 
 			{
 				Game.currentState.location = "Outskirts";
-				story["story"] = new List<string>() {"You wake up from a hangover..."};
+				story["story"] = new List<string>() {"Following the lead you got from the barkeep, you go to the outskirts of town, where you were told you could find the tuxedoed chap."};
 				story["flavor"] = new List<string>() {"Type \u001b[32;1;4m[next]\u001b[0m to continue."};
 			}
 			if (currentF == "boy") 
 			{
 				Game.currentState.date = "Friday";
 			}
-			if (currentF == "inn")
+			if (currentF == "tavern")
 			{
 				changeScene = true;
 			}
